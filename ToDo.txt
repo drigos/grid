@@ -1,0 +1,28 @@
+Definir corretamente os privilégios (private, protected, public)
+Aplicar encapsulamento
+Barra colorida
+Inserir processo sem passar PID
+Código de erros
+isolar implementação do libera_proc
+Criar uma classe indice (pid, cid, endereço do processo)
+relatório de PID com tempo do processo;
+Renomear variáveis abreviadas
+	desc - descritor
+
+Menu dinâmico
+Atribuir nome ao PID
+Usar o destructor
+usar locale
+
+
+Gerenciamento global de PIDs
+   index[][2] será realocado a cada inserção e exclusão de uma nova máquina
+   o tamanho de index[][2] deve ser equivalente a soma total de processadores * 2
+   index[][2] deve ser preenchido com valores nulos
+   cada processo inserido irá substituir um elemento nulo da array da esquerda para a direita
+   método de inserção de árvore binária será usado para garantir que os processos fiquem em ordem crescente
+   método de inserção de árvore binária será feito tomando por base o primeiro elemento da array até um antes do primeiro \0 (reduz o processamento)
+   a segunda coluna irá conter a informação de qual máquina o processo está alocado para rápida remoção
+   assim em linhas gerais, ao inserir um processo será chamado um método do objeto cluster que por sua vez irá chamar o método de inserção da máquina que estiver mais ociosa
+   da mesma forma, o método de exclusão de processo do cluster irá fazer uma busca em index[][2] usando o método de árvore binária. Ao identificar o processo o mesmo terá o computador em qual este está executando chamando então o método de exclusão dessa máquina
+   ao excluir um processo de forma natural ou não deve-se atentar para alterar a array index[][2]
